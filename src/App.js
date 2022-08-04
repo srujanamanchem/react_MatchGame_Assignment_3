@@ -304,11 +304,15 @@ class App extends Component {
   }
 
   componentWillUnmount() {
-    clearInterval(this.timerId)
+    this.clearTimerInterVal()
   }
 
   restartGame = () => {
     this.setState(initialState)
+  }
+
+  clearTimerInterVal = () => {
+    clearInterval(this.timerId)
   }
 
   setTimer = () => {
@@ -335,6 +339,7 @@ class App extends Component {
     if (isMatching) {
       this.setState(prevState => ({gameScore: prevState.gameScore + 1}))
     } else {
+      this.clearTimerInterVal()
       this.setState({isGameInProcess: false})
     }
 

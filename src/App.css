@@ -25,6 +25,8 @@ body {
   height: 10vh;
   padding-left: 30px;
   padding-right: 30px;
+  margin-bottom: 0;
+  margin-top: 0;
 }
 .game-logo {
   width: 100px;
@@ -65,6 +67,8 @@ body {
   background-size: cover;
   height: 90vh;
   width: 100%;
+  justify-content: center;
+  align-items: center;
   justify-content: center;
   align-items: center;
 }
@@ -156,6 +160,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 10px;
+  cursor: pointer;
 }
 .reset-image {
   width: 15px;
