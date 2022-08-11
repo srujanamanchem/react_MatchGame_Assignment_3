@@ -307,12 +307,17 @@ class App extends Component {
     this.clearTimerInterVal()
   }
 
-  restartGame = () => {
-    this.setState(initialState)
-  }
-
   clearTimerInterVal = () => {
     clearInterval(this.timerId)
+  }
+
+  restartGame = () => {
+    this.setState({
+      gameTimer: 60,
+      gameScore: 0,
+      isGameInProcess: true,
+    })
+    this.componentDidMount()
   }
 
   setTimer = () => {
@@ -331,11 +336,8 @@ class App extends Component {
   checkSmallAndLargeImage = imageId => {
     const {largeImageId} = this.state
     const isMatching = largeImageId === imageId
-    const indexNumber = Math.floor(Math.random() * 100)
-    const position =
-      indexNumber > imagesList.length
-        ? indexNumber % imagesList.length
-        : indexNumber
+    const position = Math.floor(Math.random() * imagesList.length)
+
     if (isMatching) {
       this.setState(prevState => ({gameScore: prevState.gameScore + 1}))
     } else {
